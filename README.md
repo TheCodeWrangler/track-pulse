@@ -1,4 +1,6 @@
-# Track Pulse
+<h1>
+  <img src="images/TP.png" alt="Logo" width="50" height="50"> Track Pulse
+</h1>
 
 ## Prior work
 
@@ -43,7 +45,7 @@ Table for tracking versions of segmentation algorithm
 ### ObjectTypes
 Categories of Objects that can be classified
 
-### ObjectInstances
+### ObjectObservation
 
 Instances of objects
 
@@ -54,3 +56,22 @@ Instances of objects
 |image_id|ref||
 |object_type|ref||
 |mask_fp|path|Path to location saved of the mask where the object is located in the image|
+|centroid_lat|float|latitude of centroid|
+|centroid_lon|float|longitude of centroid|
+
+## ObjectInstance
+
+|Column|DataType|description|
+|---:|:---|:---|
+|id|-|-|
+|object_observation_ids|references one to M||
+
+
+## Running local database
+
+To run locally for dev us docker
+
+```bash
+docker run --name tp-db -p 5432:5432 -e POSTGRES_PASSWORD=postgres  -d --rm postgres
+```
+
