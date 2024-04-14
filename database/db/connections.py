@@ -11,7 +11,7 @@ logging.basicConfig(level=logging.INFO)
 
 
 # Dependency to get the database session
-def get_db(local=False) -> Generator[Session, Any, None]:
+def get_db(local=True) -> Generator[Session, Any, None]:
 
     if local:
         engine = connect_local()
@@ -27,7 +27,7 @@ def get_db(local=False) -> Generator[Session, Any, None]:
         db.close()
 
 
-def create_db_and_tables(local=False) -> None:
+def create_db_and_tables(local=True) -> None:
     """
     Creates the database and tables if they do not already exist.
     """
