@@ -1,12 +1,11 @@
 from google.cloud.sql.connector import Connector, IPTypes, create_async_connector
-from sqlalchemy.orm import Session, sessionmaker
+from sqlalchemy.orm import sessionmaker
 from sqlmodel import SQLModel
 from sqlalchemy.ext.asyncio import AsyncEngine, create_async_engine, AsyncSession
 import asyncpg
 import os
 import logging
 from typing import AsyncGenerator, Any
-import sqlalchemy
 
 logging.basicConfig(level=logging.INFO)
 
@@ -15,13 +14,13 @@ logging.basicConfig(level=logging.INFO)
 async def get_db() -> AsyncGenerator[AsyncSession, Any]:
     connector = await create_async_connector()
     pool = await connect_with_connector(connector)
-    
+
     AsyncSessionLocal = sessionmaker(
-        autocommit=False, 
-        autoflush=False, 
+        autocommit=False,
+        autoflush=False,
         bind=pool,
         class_=AsyncSession,
-        expire_on_commit=False
+        expire_on_commit=False,
     )
 
     try:
@@ -49,11 +48,10 @@ async def create_db_and_tables() -> None:
         logging.info("Database and tables created")
 
     # close Connector
-    await connector.close_async()  
+    await connector.close_async()
 
     # dispose of connection pool
     await engine.dispose()
-    
 
 
 async def connect_with_connector(connector: Connector) -> AsyncEngine:
@@ -66,6 +64,7 @@ async def connect_with_connector(connector: Connector) -> AsyncEngine:
 
     ip_type = IPTypes.PRIVATE if os.environ.get("PRIVATE_IP") else IPTypes.PUBLIC
     logging.debug(f"Connection to {instance_connection_name} with {ip_type}")
+
     # initialize Connector object for connections to Cloud SQL
     async def getconn() -> asyncpg.Connection:
         conn: asyncpg.Connection = await connector.connect_async(
@@ -74,7 +73,7 @@ async def connect_with_connector(connector: Connector) -> AsyncEngine:
             user=db_user,
             password=db_pass,
             db=db_name,
-            ip_type=ip_type
+            ip_type=ip_type,
         )
         return conn
 
@@ -86,18 +85,16 @@ async def connect_with_connector(connector: Connector) -> AsyncEngine:
     )
     return pool
 
+
 def connect_local() -> AsyncEngine:
     # The Cloud SQL Python Connector can be used along with SQLAlchemy using the
     # 'async_creator' argument to 'create_async_engine'
     async def getconn() -> asyncpg.Connection:
         conn: asyncpg.Connection = await asyncpg.connect(
-            user="postgres",
-            password="postgres",
-            database="postgres",
-            host="localhost"
+            user="postgres", password="postgres", database="postgres", host="localhost"
         )
         return conn
-    
+
     pool = create_async_engine(
         "postgresql+asyncpg://",
         async_creator=getconn,

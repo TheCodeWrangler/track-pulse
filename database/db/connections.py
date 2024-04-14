@@ -82,7 +82,6 @@ def connect_with_connector() -> sqlalchemy.engine.base.Engine:
     return pool
 
 
-
 def connect_local() -> sqlalchemy.engine.base.Engine:
 
     db_user = "postgres"  # e.g. 'my-db-user'
@@ -94,12 +93,10 @@ def connect_local() -> sqlalchemy.engine.base.Engine:
     #  Create SQLAlchemy engine
     def getconn() -> pg8000.dbapi.Connection:
         conn: pg8000.dbapi.Connection = pg8000.connect(
-            user=db_user,
-            password=db_pass,
-            database=db_name,
-            host="localhost"
+            user=db_user, password=db_pass, database=db_name, host="localhost"
         )
         return conn
+
     pool = sqlalchemy.create_engine(
         "postgresql+pg8000://",
         creator=getconn,

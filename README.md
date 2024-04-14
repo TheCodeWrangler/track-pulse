@@ -75,3 +75,27 @@ To run locally for dev us docker
 docker run --name tp-db -p 5432:5432 -e POSTGRES_PASSWORD=postgres  -d --rm postgres
 ```
 
+
+## DB Schema Update and Migrations
+
+After any changes to "db/models/*" run the following commands to create a migration and apply it to the database:
+
+```bash
+alembic revision --autogenerate -m "message"
+alembic upgrade head
+```
+
+After remote changes to the database you should commit the alembic version file:
+
+```bash
+git add alembic/versions/*
+git commit -m "message"
+```
+
+You will also need to update the api to match the database changes and should update the documentation to reflect the changes (including the ER diagram).
+
+Change ER diagram by running `database/imgs/make_diagram.py`
+
+## ER diagram
+
+![ER Diagram](database/imgs/entity_relationships.png)

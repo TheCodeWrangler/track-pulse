@@ -1,6 +1,7 @@
 from sqlmodel import SQLModel, Field, Relationship
 from typing import Optional, List
 from datetime import datetime
+
 # from db.models.link_tables import EncounterSetLink
 
 
@@ -15,14 +16,10 @@ class Image(ImageBase, table=True):
     id: Optional[int] = Field(default=None, primary_key=True)
     created_datetime: datetime = datetime.utcnow()
 
-    # # Link to other tables (many to many) through link tables
-    # encounter_sets: list["EncounterSet"] = Relationship(  # noqa: F821
-    #     back_populates="encounters", link_model=EncounterSetLink
-    # )  # type: ignore
-
-    # transcripts: Optional[List["Transcript"]] = Relationship(  # noqa: F821
-    #     back_populates="encounter"
-    # )  # noqa: F821
+    # one Image can have many ObjectObservations
+    object_observations: List["ObjectObservation"] = Relationship(
+        back_populates="image"
+    )
 
 
 class ImageCreate(ImageBase):
