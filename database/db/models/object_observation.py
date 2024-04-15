@@ -6,7 +6,6 @@ from database.db.models.object_instance import ObjectInstance
 
 from database.db.models.image import Image
 
-
 class ObjectObservationBase(SQLModel):
     # Pixel Region defines where in the image the object is located
     pixel_region: Optional[str] = None
@@ -33,5 +32,12 @@ class ObjectObservation(ObjectObservationBase, table=True):
         foreign_key="object_instance.id", default=None
     )
     object_instance: Optional["ObjectInstance"] = Relationship(
+        back_populates="object_observations"
+    )
+
+    segmentation_algorithm_id: Optional[int] = Field(
+        foreign_key="segmentation_algorithm.id", default=None
+    )
+    segmentation_algorithm: Optional["SegmentationAlgorithm"] = Relationship(
         back_populates="object_observations"
     )
