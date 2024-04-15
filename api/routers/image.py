@@ -8,6 +8,7 @@ from database.db.connections import get_db
 
 router = APIRouter()
 
+
 @router.post("/", response_model=ImageRead, status_code=status.HTTP_201_CREATED)
 def create_image(image: ImageCreate, db: Session = Depends(get_db)):
     new_image = Image(**image.dict())
@@ -16,6 +17,7 @@ def create_image(image: ImageCreate, db: Session = Depends(get_db)):
     db.refresh(new_image)
     return new_image
 
+
 @router.get("/{image_id}", response_model=ImageRead)
 def read_image(image_id: int, db: Session = Depends(get_db)):
     image = db.get(Image, image_id)
@@ -23,13 +25,17 @@ def read_image(image_id: int, db: Session = Depends(get_db)):
         raise HTTPException(status_code=404, detail="Image not found")
     return image
 
+
 @router.get("/", response_model=List[ImageRead])
 def read_images(db: Session = Depends(get_db)):
     images = db.execute(select(Image)).scalars().all()
     return images
 
+
 @router.put("/{image_id}", response_model=ImageRead)
-def update_image(image_id: int, image_update: ImageUpdate, db: Session = Depends(get_db)):
+def update_image(
+    image_id: int, image_update: ImageUpdate, db: Session = Depends(get_db)
+):
     image = db.get(Image, image_id)
     if image is None:
         raise HTTPException(status_code=404, detail="Image not found")
@@ -38,6 +44,7 @@ def update_image(image_id: int, image_update: ImageUpdate, db: Session = Depends
     db.commit()
     db.refresh(image)
     return image
+
 
 @router.delete("/{image_id}", status_code=status.HTTP_204_NO_CONTENT)
 def delete_image(image_id: int, db: Session = Depends(get_db)):

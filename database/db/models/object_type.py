@@ -1,10 +1,11 @@
 from sqlmodel import SQLModel, Field, Relationship
+from sqlalchemy import Column, String
 from typing import Optional, List
 from datetime import datetime
 
 
 class ObjectTypeBase(SQLModel):
-    name: str
+    name: str = Field(sa_column=Column(String, unique=True))
     description: Optional[str] = None
 
 
