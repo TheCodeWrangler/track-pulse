@@ -18,7 +18,7 @@ class ObjectObservation(ObjectObservationBase, table=True):
 
     # One object observation is of one object_type
     object_type_id: Optional[int] = Field(foreign_key="object_type.id", default=None)
-    object_type: Optional["ObjectType"] = Relationship(
+    object_type: Optional["ObjectType"] = Relationship( # type: ignore
         back_populates="object_observations"
     )
 
@@ -26,7 +26,7 @@ class ObjectObservation(ObjectObservationBase, table=True):
     image: Optional[Image] = Relationship(back_populates="object_observations")
 
     depth_map_id: Optional[int] = Field(foreign_key="depthmap.id", default=None)
-    depth_map: Optional["DepthMap"] = Relationship(back_populates="object_observations")
+    depth_map: Optional["DepthMap"] = Relationship(back_populates="object_observations") # type: ignore
 
     object_instance_id: Optional[int] = Field(
         foreign_key="object_instance.id", default=None
@@ -38,6 +38,6 @@ class ObjectObservation(ObjectObservationBase, table=True):
     segmentation_algorithm_id: Optional[int] = Field(
         foreign_key="segmentation_algorithm.id", default=None
     )
-    segmentation_algorithm: Optional["SegmentationAlgorithm"] = Relationship(
+    segmentation_algorithm: Optional["SegmentationAlgorithm"] = Relationship( # type: ignore
         back_populates="object_observations"
     )
