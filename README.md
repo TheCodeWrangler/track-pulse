@@ -5,7 +5,7 @@
 ## Prior work
 
 - [Automated Track Change Detection Technology for Enhanced Railroad Safety Assessment](https://railroads.dot.gov/sites/fra.dot.gov/files/2023-04/UIUC%20Change%20Detection.pdf)
-
+- [Development of Track Component Health Indices Using Image Based Railway Track Inspection](https://railtec.illinois.edu/wp/wp-content/uploads/germoglio-barbosa-et-al-2024-development-of-track-component-health-indices-using-image-based-railway-track-inspection.pdf)
 
 
 ## Data pipeline
