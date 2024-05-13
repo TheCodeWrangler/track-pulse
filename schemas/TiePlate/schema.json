@@ -1,0 +1,145 @@
+{
+    "fields": [
+      {
+        "name": "Distance",
+        "type": "FLOAT",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "TiePlateID",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "TiePlateSide",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "BBox",
+        "type": "RECORD",
+        "mode": "NULLABLE",
+        "fields": [
+          {
+            "name": "MinX",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+          },
+          {
+            "name": "MaxX",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+          },
+          {
+            "name": "MinY",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+          },
+          {
+            "name": "MaxY",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+          }
+        ]
+      },
+      {
+        "name": "UTMCoordinate",
+        "type": "RECORD",
+        "mode": "NULLABLE",
+        "fields": [
+          {
+            "name": "UTMZone",
+            "type": "STRING",
+            "mode": "NULLABLE"
+          },
+          {
+            "name": "UtmX",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+          },
+          {
+            "name": "UtmY",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+          },
+          {
+            "name": "UtmZ",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+          }
+        ]
+      },
+      {
+        "name": "GPSCoordinate",
+        "type": "RECORD",
+        "mode": "NULLABLE",
+        "fields": [
+          {
+            "name": "Longitude",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+          },
+          {
+            "name": "Latitude",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+          }
+        ]
+      },
+      {
+        "name": "Condition",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "Name",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "Similarity_percentage",
+        "type": "FLOAT",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "NumberOfCutSpike",
+        "type": "RECORD",
+        "mode": "NULLABLE",
+        "fields": [
+          {
+            "name": "Field",
+            "type": "STRING",
+            "mode": "NULLABLE"
+          },
+          {
+            "name": "Gauge",
+            "type": "STRING",
+            "mode": "NULLABLE"
+          }
+        ]
+      },
+      {
+        "name": "NumberOfScrewSpike",
+        "type": "RECORD",
+        "mode": "NULLABLE",
+        "fields": [
+          {
+            "name": "Field",
+            "type": "STRING",
+            "mode": "NULLABLE"
+          },
+          {
+            "name": "Gauge",
+            "type": "STRING",
+            "mode": "NULLABLE"
+          }
+        ]
+      },
+      {
+        "name": "SpikingPattern",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      }
+    ]
+  }
+  

@@ -1,0 +1,81 @@
+{
+    "fields": [
+      {
+        "name": "Type",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "Confidence",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "BBox",
+        "type": "RECORD",
+        "mode": "NULLABLE",
+        "fields": [
+          {
+            "name": "MinX",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+          },
+          {
+            "name": "MaxX",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+          },
+          {
+            "name": "MinY",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+          },
+          {
+            "name": "MaxY",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+          }
+        ]
+      },
+      {
+        "name": "MeanHeight",
+        "type": "FLOAT",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "RailFoot",
+        "type": "RECORD",
+        "mode": "NULLABLE",
+        "fields": [
+          {
+            "name": "Valid",
+            "type": "STRING",
+            "mode": "NULLABLE"
+          },
+          {
+            "name": "LeftWidth",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+          },
+          {
+            "name": "RightWidth",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+          }
+        ]
+      },
+      {
+        "name": "RailDefectInformation",
+        "type": "RECORD",
+        "mode": "NULLABLE",
+        "fields": [
+          {
+            "name": "NumberOfDefect",
+            "type": "STRING",
+            "mode": "NULLABLE"
+          }
+        ]
+      }
+    ]
+  }
+  

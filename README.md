@@ -159,6 +159,7 @@ I propose we make a table for
 - Rail
 - RailWearParam
 - Tie
+  - These also have spikes, ballast, ties... what to do here?
 - UDFO
 
 Each of these will get schemas as is and add "SurveyID" "SectionID"

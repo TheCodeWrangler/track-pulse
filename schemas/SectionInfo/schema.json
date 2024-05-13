@@ -1,0 +1,74 @@
+[
+    {
+      "name": "SurveyID",
+      "type": "INT64",
+      "mode": "REQUIRED",
+      "description": "Unique identifier for the survey."
+    },
+    {
+      "name": "SectionID",
+      "type": "INT64",
+      "mode": "REQUIRED",
+      "description": "Identifier for the section."
+    },
+    {
+      "name": "DistanceBegin_m",
+      "type": "FLOAT",
+      "mode": "NULLABLE",
+      "description": "Starting distance in meters."
+    },
+    {
+      "name": "DistanceEnd_m",
+      "type": "FLOAT",
+      "mode": "NULLABLE",
+      "description": "Ending distance in meters."
+    },
+    {
+      "name": "TimeBegin_s",
+      "type": "FLOAT",
+      "mode": "NULLABLE",
+      "description": "Starting time in seconds."
+    },
+    {
+      "name": "TimeEnd_s",
+      "type": "FLOAT",
+      "mode": "NULLABLE",
+      "description": "Ending time in seconds."
+    },
+    {
+      "name": "NbProfiles",
+      "type": "INT64",
+      "mode": "NULLABLE",
+      "description": "Number of profiles."
+    },
+    {
+      "name": "SectionLength_m",
+      "type": "FLOAT",
+      "mode": "NULLABLE",
+      "description": "Length of the section in meters."
+    },
+    {
+      "name": "Speed_kmh",
+      "type": "FLOAT",
+      "mode": "NULLABLE",
+      "description": "Speed in kilometers per hour."
+    },
+    {
+      "name": "AcquisitionResolution_mm",
+      "type": "FLOAT",
+      "mode": "NULLABLE",
+      "description": "Acquisition resolution in millimeters."
+    },
+    {
+      "name": "PercentageOutOfRangeData",
+      "type": "FLOAT",
+      "mode": "NULLABLE",
+      "description": "Percentage of out of range data."
+    },
+    {
+      "name": "PercentageTooDarkPixelData",
+      "type": "FLOAT",
+      "mode": "NULLABLE",
+      "description": "Percentage of too dark pixel data."
+    }
+]

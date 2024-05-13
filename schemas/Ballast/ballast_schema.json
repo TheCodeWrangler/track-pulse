@@ -1,0 +1,118 @@
+{
+    "fields": [
+      {
+        "name": "Type",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "Distance",
+        "type": "FLOAT",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "BBox",
+        "type": "RECORD",
+        "mode": "NULLABLE",
+        "fields": [
+          {
+            "name": "MinX",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+          },
+          {
+            "name": "MaxX",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+          },
+          {
+            "name": "MinY",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+          },
+          {
+            "name": "MaxY",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+          }
+        ]
+      },
+      {
+        "name": "Boundary",
+        "type": "RECORD",
+        "mode": "NULLABLE",
+        "fields": [
+          {
+            "name": "NumberOfPoint",
+            "type": "INTEGER",
+            "mode": "NULLABLE"
+          },
+          {
+            "name": "X",
+            "type": "INTEGER",
+            "mode": "REPEATED"
+          },
+          {
+            "name": "Y",
+            "type": "INTEGER",
+            "mode": "REPEATED"
+          }
+        ]
+      },
+      {
+        "name": "Area",
+        "type": "FLOAT",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "Volume",
+        "type": "FLOAT",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "UTMCoordinate",
+        "type": "RECORD",
+        "mode": "NULLABLE",
+        "fields": [
+          {
+            "name": "UTMZone",
+            "type": "STRING",
+            "mode": "NULLABLE"
+          },
+          {
+            "name": "UtmX",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+          },
+          {
+            "name": "UtmY",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+          },
+          {
+            "name": "UtmZ",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+          }
+        ]
+      },
+      {
+        "name": "GPSCoordinate",
+        "type": "RECORD",
+        "mode": "NULLABLE",
+        "fields": [
+          {
+            "name": "Longitude",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+          },
+          {
+            "name": "Latitude",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+          }
+        ]
+      }
+    ]
+  }
+  

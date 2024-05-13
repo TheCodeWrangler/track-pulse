@@ -1,0 +1,155 @@
+{
+    "fields": [
+      {
+        "name": "Valid",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "EnableDisplay",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "InvalidDataPercentageLeftRight",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "Distance",
+        "type": "FLOAT",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "ProfileIndex",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "UTMCoordinate",
+        "type": "RECORD",
+        "mode": "NULLABLE",
+        "fields": [
+          {
+            "name": "UTMZone",
+            "type": "STRING",
+            "mode": "NULLABLE"
+          },
+          {
+            "name": "MeasurePoint",
+            "type": "RECORD",
+            "mode": "NULLABLE",
+            "fields": [
+              {
+                "name": "Point1UtmX",
+                "type": "FLOAT",
+                "mode": "NULLABLE"
+              },
+              {
+                "name": "Point1UtmY",
+                "type": "FLOAT",
+                "mode": "NULLABLE"
+              },
+              {
+                "name": "Point1UtmZ",
+                "type": "FLOAT",
+                "mode": "NULLABLE"
+              },
+              {
+                "name": "Point2UtmX",
+                "type": "FLOAT",
+                "mode": "NULLABLE"
+              },
+              {
+                "name": "Point2UtmY",
+                "type": "FLOAT",
+                "mode": "NULLABLE"
+              },
+              {
+                "name": "Point2UtmZ",
+                "type": "FLOAT",
+                "mode": "NULLABLE"
+              }
+            ]
+          },
+          {
+            "name": "TopPoint",
+            "type": "RECORD",
+            "mode": "NULLABLE",
+            "fields": [
+              {
+                "name": "Point1UtmX",
+                "type": "FLOAT",
+                "mode": "NULLABLE"
+              },
+              {
+                "name": "Point1UtmY",
+                "type": "FLOAT",
+                "mode": "NULLABLE"
+              },
+              {
+                "name": "Point1UtmZ",
+                "type": "FLOAT",
+                "mode": "NULLABLE"
+              },
+              {
+                "name": "Point2UtmX",
+                "type": "FLOAT",
+                "mode": "NULLABLE"
+              },
+              {
+                "name": "Point2UtmY",
+                "type": "FLOAT",
+                "mode": "NULLABLE"
+              },
+              {
+                "name": "Point2UtmZ",
+                "type": "FLOAT",
+                "mode": "NULLABLE"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "GPSCoordinate",
+        "type": "RECORD",
+        "mode": "NULLABLE",
+        "fields": [
+          {
+            "name": "Longitude",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+          },
+          {
+            "name": "Latitude",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+          }
+        ]
+      },
+      {
+        "name": "Width",
+        "type": "FLOAT",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "Elevation",
+        "type": "RECORD",
+        "mode": "NULLABLE",
+        "fields": [
+          {
+            "name": "Value",
+            "type": "FLOAT",
+            "mode": "NULLABLE"
+          },
+          {
+            "name": "Specific",
+            "type": "STRING",
+            "mode": "NULLABLE"
+          }
+        ]
+      }
+    ]
+  }
+  
