@@ -99,3 +99,68 @@ Change ER diagram by running `database/imgs/make_diagram.py`
 ## ER diagram
 
 ![ER Diagram](database/imgs/entity_relationships.png)
+
+## Make pipeline
+
+1. Make a bucket
+1. Make a cloud function
+  - Would be great to have it a part of this repo so that we can use the schema
+1. Make some test uploads
+
+
+# XML Structure
+
+The xml files have the following structure
+
+```json
+{
+    "DataFormat": "1.1",
+    "SurveyInfo": "dict",
+    "SectionInfo": "dict",
+    "ProcessingInformation": "dict",
+    "GPSInformation": "dict",
+    "SectionPosition": "dict",
+    "SectionGnssBasedUtcTimeBeginEnd": "dict",
+    "ResultImageInformation": "dict",
+    "RailSystemInformation": "dict",
+    "SystemData": "dict",
+    "GeometryReferenceCalibrationParams": "dict"
+}
+```
+
+I have inspected two files to see what would be a unique id
+
+It appears that:
+- SectionInfo.SurveyID
+- SectionInfo.SectionID
+
+Together these will be unique
+
+
+Schema work is a headache!
+
+Break it down and just do "SurveyInfo"
+
+Seems like we should make a table for each thing we want and include SurveyId.SectionId as a key and partition
+This will allow for linking everything and only querying subsets
+
+later we can add a table for "trackID" and "mile post" which can be joined to the others when available
+
+I propose we make a table for
+
+- SectionInformation
+- Ballast
+- Anchor
+- Fastener
+- TiePlate ( Are there other possible RailSupport?)
+- Spike
+- GageWidthMeasurement
+- Jointbar
+- Rail
+- RailWearParam
+- Tie
+- UDFO
+
+Each of these will get schemas as is and add "SurveyID" "SectionID"
+
+
